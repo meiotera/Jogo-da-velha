@@ -1,0 +1,11 @@
+.container {
+    text-align: center;
+}
+.col {
+    height: 100px;
+    max-width: 100px;
+}
+
+.row {
+    justify-content: center;
+}
