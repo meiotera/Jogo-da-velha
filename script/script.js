@@ -41,7 +41,7 @@ const celulaClicada = (e) => {
     }
     if(verificaSequencia(sete, oito, nove)){
         mudaCor(sete, oito, nove)
-        console.log('camp')
+        
     }
     if(verificaSequencia(um, quatro, sete)){
         mudaCor(um, quatro, sete)
@@ -68,13 +68,12 @@ const celulaClicada = (e) => {
 function verificaSequencia(um, dois, tres){
     let igual = false;
 
-    if(vencedor === jogadorDaVez) {
-        avisoVencedor()
-    }
-
     if(um.innerHTML !== '' && um.innerHTML === dois.innerHTML && dois.innerHTML === tres.innerHTML){
         igual = true;
         vencedor = jogadorDaVez;
+    }
+    if(igual){
+        avisoVencedor()
     }
     return igual;
 }
