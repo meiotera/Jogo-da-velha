@@ -23,52 +23,52 @@ const celulaClicada = (e) => {
         jogadorDaVez = jogadorO
     }    
 
-    
     e.target.innerHTML = jogadorDaVez;
     
-    let um = document.getElementById('1')
-    let dois = document.getElementById('2')
-    let tres = document.getElementById('3')
-    let quatro = document.getElementById('4')
-    let cinco = document.getElementById('5')
-    let seis = document.getElementById('6')
-    let sete = document.getElementById('7')
-    let oito = document.getElementById('8')
-    let nove = document.getElementById('9')  
-    
+    let um = document.getElementById('1');
+    let dois = document.getElementById('2');
+    let tres = document.getElementById('3');
+    let quatro = document.getElementById('4');
+    let cinco = document.getElementById('5');
+    let seis = document.getElementById('6');
+    let sete = document.getElementById('7');
+    let oito = document.getElementById('8');
+    let nove = document.getElementById('9');    
  
     if(verificaSequencia(um, dois, tres)){
-        mudaCor(um, dois, tres)       
+        mudaCor(um, dois, tres);
                  
     }
     if(verificaSequencia(quatro, cinco, seis)){
-        mudaCor(quatro, cinco, seis)
+        mudaCor(quatro, cinco, seis);
                 
     }
     if(verificaSequencia(sete, oito, nove)){
-        mudaCor(sete, oito, nove)
+        mudaCor(sete, oito, nove);
         
     }
     if(verificaSequencia(um, quatro, sete)){
-        mudaCor(um, quatro, sete)
+        mudaCor(um, quatro, sete);
         
     }
     if(verificaSequencia(dois, cinco, oito)){
-        mudaCor(dois, cinco, oito)
+        mudaCor(dois, cinco, oito);
         
     }
     if(verificaSequencia(tres, seis, nove)){
-        mudaCor(tres, seis, nove)
+        mudaCor(tres, seis, nove);
         
     }
     if(verificaSequencia(tres, cinco, sete)){
-        mudaCor(tres, cinco, sete)
+        mudaCor(tres, cinco, sete);
         
     }
     if(verificaSequencia(um, cinco, nove)){
-        mudaCor(um, cinco, nove)
+        mudaCor(um, cinco, nove);
         
     }
+
+    
 }
 
 function verificaSequencia(um, dois, tres){
@@ -79,18 +79,19 @@ function verificaSequencia(um, dois, tres){
         vencedor = jogadorDaVez;
     }
     if(igual){
-        avisoVencedor()
+        avisoVencedor();
     }
     return igual;
 }
 
 
 function avisoVencedor(){
-    document.getElementById('aviso').style.display = 'flex'
+    document.getElementById('aviso').style.display = 'flex';
     let paragrafo = document.getElementById('paragrafo');
     paragrafo.innerHTML = `Parabéns Jogador ${jogadorDaVez}, Você ganhou!!`;
 
-    pontosJogador(jogadorDaVez)
+    pontosJogador(jogadorDaVez);
+    
 }
 
 function pontosJogador(vencedor){    
@@ -98,7 +99,7 @@ function pontosJogador(vencedor){
         pontosJogadorX.innerHTML++
     } else if (vencedor === 'O'){
         posntosJogadorO.innerHTML++
-    }   
+    }
 }
 
 
@@ -117,7 +118,7 @@ function reiniciar(){
     }
     for(let celula of quadrados){
             celula.innerHTML = '';
-            celula.style.backgroundColor = ''
+            celula.style.backgroundColor = '';
     }
     document.getElementById('aviso').style.display = 'none';
     vencedor = null;        
@@ -125,7 +126,7 @@ function reiniciar(){
 reiniciar()
 
 let btReiniciar = document.getElementById('btReiniciar');
-btReiniciar.addEventListener('click', reiniciar)
+btReiniciar.addEventListener('click', reiniciar);
 /*
 let btReiniciarPaginaInicial =  document.getElementById('btReiniciarPaginaInicial');
 btReiniciarPaginaInicial.addEventListener('click', reiniciar)
