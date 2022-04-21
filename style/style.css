@@ -27,7 +27,10 @@
     transition: all ease 1s;
     justify-content: center;
     align-items: center;
-    height: 250px;
-   
-    
+    height: 250px;    
+}
+.pontos {
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 18px;
 }

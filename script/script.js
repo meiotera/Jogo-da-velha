@@ -5,6 +5,12 @@ let jogadorO = 'O';
 let jogadorDaVez = jogadorO;
 let vencedor = null;
 
+
+let pontosJogadorX =  document.getElementById('pontoX');
+let posntosJogadorO = document.getElementById('pontoO');
+pontosJogadorX.innerHTML = Number(0)
+posntosJogadorO.innerHTML = Number(0)
+
 const celulaClicada = (e) => {      
     
     if(vencedor === jogadorDaVez){       
@@ -83,6 +89,16 @@ function avisoVencedor(){
     document.getElementById('aviso').style.display = 'flex'
     let paragrafo = document.getElementById('paragrafo');
     paragrafo.innerHTML = `Parabéns Jogador ${jogadorDaVez}, Você ganhou!!`;
+
+    pontosJogador(jogadorDaVez)
+}
+
+function pontosJogador(vencedor){    
+    if(vencedor === 'X'){
+        pontosJogadorX.innerHTML++
+    } else if (vencedor === 'O'){
+        posntosJogadorO.innerHTML++
+    }   
 }
 
 
@@ -110,3 +126,7 @@ reiniciar()
 
 let btReiniciar = document.getElementById('btReiniciar');
 btReiniciar.addEventListener('click', reiniciar)
+/*
+let btReiniciarPaginaInicial =  document.getElementById('btReiniciarPaginaInicial');
+btReiniciarPaginaInicial.addEventListener('click', reiniciar)
+*/
