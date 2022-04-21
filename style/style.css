@@ -4,8 +4,30 @@
 .col {
     height: 100px;
     max-width: 100px;
+    border: 1px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
 }
 
 .row {
     justify-content: center;
+    
+}
+#aviso{
+    position: fixed;
+    left:0;
+    top: 80px;
+    bottom:0;
+    right:0;
+    display: none;
+    background-color:rgb(24, 202, 24);
+    font-size: 40px;
+    transition: all ease 1s;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+   
+    
 }
