@@ -2,8 +2,9 @@
 let quadrados = document.getElementsByClassName('col');
 let jogadorX = 'X';
 let jogadorO = 'O';
-let jogadorDaVez = jogadorO;
+let jogadorDaVez = jogadorX;
 let vencedor = null;
+let diferente = 0;
 
 
 let pontosJogadorX =  document.getElementById('pontoX');
@@ -36,62 +37,63 @@ const celulaClicada = (e) => {
     let nove = document.getElementById('9');    
  
     if(verificaSequencia(um, dois, tres)){
-        mudaCor(um, dois, tres);
-                 
+        mudaCor(um, dois, tres);                 
     }
     if(verificaSequencia(quatro, cinco, seis)){
-        mudaCor(quatro, cinco, seis);
-                
+        mudaCor(quatro, cinco, seis);                
     }
     if(verificaSequencia(sete, oito, nove)){
-        mudaCor(sete, oito, nove);
-        
+        mudaCor(sete, oito, nove);        
     }
     if(verificaSequencia(um, quatro, sete)){
-        mudaCor(um, quatro, sete);
-        
+        mudaCor(um, quatro, sete);        
     }
     if(verificaSequencia(dois, cinco, oito)){
-        mudaCor(dois, cinco, oito);
-        
+        mudaCor(dois, cinco, oito);        
     }
     if(verificaSequencia(tres, seis, nove)){
-        mudaCor(tres, seis, nove);
-        
+        mudaCor(tres, seis, nove);        
     }
     if(verificaSequencia(tres, cinco, sete)){
-        mudaCor(tres, cinco, sete);
-        
+        mudaCor(tres, cinco, sete);        
     }
     if(verificaSequencia(um, cinco, nove)){
-        mudaCor(um, cinco, nove);
-        
-    }
-
-    
+        mudaCor(um, cinco, nove);        
+    }    
 }
 
 function verificaSequencia(um, dois, tres){
-    let igual = false;
-
+    let igual = false;    
+    diferente++
     if(um.innerHTML !== '' && um.innerHTML === dois.innerHTML && dois.innerHTML === tres.innerHTML){
         igual = true;
         vencedor = jogadorDaVez;
+    } 
+    if (diferente === 72){
+        avisoVencedor();        
     }
     if(igual){
         avisoVencedor();
-    }
+    } 
     return igual;
 }
 
 
-function avisoVencedor(){
-    document.getElementById('aviso').style.display = 'flex';
-    let paragrafo = document.getElementById('paragrafo');
-    paragrafo.innerHTML = `Parabéns Jogador ${jogadorDaVez}, Você ganhou!!`;
-
-    pontosJogador(jogadorDaVez);
+function avisoVencedor () {
     
+    if(diferente === 72){
+        document.getElementById('aviso').style.display = 'flex';
+        let paragrafo = document.getElementById('paragrafo');
+        paragrafo.innerHTML = `O jogo terminou empate`;
+        return;
+    } else {
+        document.getElementById('aviso').style.display = 'flex';
+        let paragrafo = document.getElementById('paragrafo');
+        paragrafo.innerHTML = `Parabéns Jogador ${jogadorDaVez}, Você ganhou!!`;
+
+    }
+
+    pontosJogador(jogadorDaVez);    
 }
 
 function pontosJogador(vencedor){    
@@ -117,10 +119,13 @@ function reiniciar(){
         celula.addEventListener('click', celulaClicada, {once:true});    
     }
     for(let celula of quadrados){
-            celula.innerHTML = '';
-            celula.style.backgroundColor = '';
+        celula.innerHTML = '';
+        celula.style.backgroundColor = '';
+           
     }
     document.getElementById('aviso').style.display = 'none';
+    diferente = 0
+    
     vencedor = null;        
 }
 reiniciar()
