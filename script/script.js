@@ -84,7 +84,7 @@ function avisoVencedor () {
     if(diferente === 72){
         document.getElementById('aviso').style.display = 'flex';
         let paragrafo = document.getElementById('paragrafo');
-        paragrafo.innerHTML = `O jogo terminou empate`;
+        paragrafo.innerHTML = `Infelizmente o jogo terminou empate`;
         return;
     } else {
         document.getElementById('aviso').style.display = 'flex';
