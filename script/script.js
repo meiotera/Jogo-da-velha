@@ -142,7 +142,3 @@ reiniciar()
 
 let btReiniciar = document.getElementById('btReiniciar');
 btReiniciar.addEventListener('click', reiniciar);
-/*
-let btReiniciarPaginaInicial =  document.getElementById('btReiniciarPaginaInicial');
-btReiniciarPaginaInicial.addEventListener('click', reiniciar)
-*/
