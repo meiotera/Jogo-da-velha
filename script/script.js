@@ -1,22 +1,26 @@
-
+// Captura das colunas ho HTML
 let quadrados = document.getElementsByClassName('col');
+// iniciando variaveis
 let jogadorX = 'X';
 let jogadorO = 'O';
 let vencedor = null;
+// Variavel faz contagem da quantidade de jogadas para verificar se tem empate
 let diferente = 0;
 
-
+// Captura de local HTML onde exibe a pontuação
 let pontosJogadorX =  document.getElementById('pontoX');
 let posntosJogadorO = document.getElementById('pontoO');
+// Convertendo em Number a pontuação
 pontosJogadorX.innerHTML = Number(0)
 posntosJogadorO.innerHTML = Number(0)
 
+// Captura celula clicada
 const celulaClicada = (e) => {      
-    
+    // Vencedor ingual a jogador da vez, jogo termina e retorna para não ser executada mais esta função
     if(vencedor === jogadorDaVez){       
         return
     }
-     
+    // Se jogador da vez for X na proxima jogada jogador da vez será O
     if(jogadorDaVez === jogadorX){
         jogadorDaVez = jogadorO 
     } else {
@@ -25,6 +29,7 @@ const celulaClicada = (e) => {
 
     e.target.innerHTML = jogadorDaVez;
     
+    // Variaveis que capturam celulas
     let um = document.getElementById('1');
     let dois = document.getElementById('2');
     let tres = document.getElementById('3');
@@ -35,6 +40,7 @@ const celulaClicada = (e) => {
     let oito = document.getElementById('8');
     let nove = document.getElementById('9');    
  
+    // Se sequencia igual chama a função mudaCor() 
     if(verificaSequencia(um, dois, tres)){
         mudaCor(um, dois, tres);                 
     }
@@ -61,23 +67,29 @@ const celulaClicada = (e) => {
     }    
 }
 
+
 function verificaSequencia(um, dois, tres){
     let igual = false;    
-    diferente++
+    diferente++ 
+    // Se um diferente de 'VAZIO' verifica UM DOIS e TRES , se forem iguais a variavel igual recebe TRUE
     if(um.innerHTML !== '' && um.innerHTML === dois.innerHTML && dois.innerHTML === tres.innerHTML){
         igual = true;
+        // Variavel vencedor recebe jogadorDaVez
         vencedor = jogadorDaVez;
     } 
+    // Se diferente === 72, chama a variale avisoVencedor()
     if (diferente === 72){
         avisoVencedor();        
     }
+    // Se igual chama avisoVencedor()
     if(igual){
         avisoVencedor();
     } 
+    // retorna TRUE
     return igual;
 }
 
-
+// avisoVencedor() mostra o aviso na tela
 function avisoVencedor () {
     
     if(diferente === 72){
@@ -89,12 +101,11 @@ function avisoVencedor () {
         document.getElementById('aviso').style.display = 'flex';
         let paragrafo = document.getElementById('paragrafo');
         paragrafo.innerHTML = `Parabéns Jogador ${jogadorDaVez}, Você ganhou!!`;
-
     }
-
     pontosJogador(jogadorDaVez);    
 }
 
+// passa a pontuação na tela
 function pontosJogador(vencedor){    
     if(vencedor === 'X'){
         pontosJogadorX.innerHTML++
@@ -104,7 +115,7 @@ function pontosJogador(vencedor){
 }
 
 
-//Troca de cor
+//Troca de cor somente das celula que contém a sequência igual
 function mudaCor(um, dois, tres){
     um.style.backgroundColor = 'green';
     dois.style.backgroundColor = 'green';
@@ -112,7 +123,7 @@ function mudaCor(um, dois, tres){
 }
 
 
-
+// Reinicia o jogo, limpando todas as celulas e váriaveis
 function reiniciar(){
     for(let celula of quadrados){    
         celula.addEventListener('click', celulaClicada, {once:true});    
