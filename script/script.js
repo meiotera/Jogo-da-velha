@@ -90,8 +90,7 @@ function verificaSequencia(um, dois, tres){
 }
 
 // avisoVencedor() mostra o aviso na tela
-function avisoVencedor () {
-    
+function avisoVencedor () {    
     if(diferente === 72){
         document.getElementById('aviso').style.display = 'flex';
         let paragrafo = document.getElementById('paragrafo');
