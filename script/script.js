@@ -10,9 +10,9 @@ let diferente = 0;
 // Captura de local HTML onde exibe a pontuação
 let pontosJogadorX =  document.getElementById('pontoX');
 let posntosJogadorO = document.getElementById('pontoO');
-// Convertendo em Number a pontuação
-pontosJogadorX.innerHTML = Number(0)
-posntosJogadorO.innerHTML = Number(0)
+// Atribuindo valor inicial a pontuação
+pontosJogadorX.innerHTML = 0
+posntosJogadorO.innerHTML = 0
 
 // Captura celula clicada
 const celulaClicada = (e) => {      
