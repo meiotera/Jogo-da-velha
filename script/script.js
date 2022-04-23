@@ -2,7 +2,6 @@
 let quadrados = document.getElementsByClassName('col');
 let jogadorX = 'X';
 let jogadorO = 'O';
-let jogadorDaVez = jogadorX;
 let vencedor = null;
 let diferente = 0;
 
@@ -18,10 +17,10 @@ const celulaClicada = (e) => {
         return
     }
      
-    if(jogadorDaVez === jogadorO){
-        jogadorDaVez = jogadorX 
+    if(jogadorDaVez === jogadorX){
+        jogadorDaVez = jogadorO 
     } else {
-        jogadorDaVez = jogadorO
+        jogadorDaVez = jogadorX
     }    
 
     e.target.innerHTML = jogadorDaVez;
@@ -125,8 +124,8 @@ function reiniciar(){
     }
     document.getElementById('aviso').style.display = 'none';
     diferente = 0
-    
     vencedor = null;        
+    jogadorDaVez = jogadorO;
 }
 reiniciar()
 
