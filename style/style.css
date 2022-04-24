@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 .container {
     text-align: center;
+    font-family: 'Indie Flower', cursive;    
+}
+
+.titulo {
+    font-size: 80px;
+    padding-bottom: 50px;
+    text-shadow: 5px 5px 5px #333;
+    margin-top: 10px;
 }
 .col {
     height: 100px;
@@ -15,22 +25,48 @@
     justify-content: center;
     
 }
+
 #aviso{
     position: fixed;
     left:0;
-    top: 80px;
+    top: 150px;
     bottom:0;
     right:0;
     display: none;
-    background-color:rgb(24, 202, 24);
+    background-color:rgba(24, 202, 24, 0.897);
     font-size: 40px;
     transition: all ease 1s;
     justify-content: center;
     align-items: center;
-    height: 250px;    
+    height: 250px;
 }
 .pontos {
     margin-top: 30px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 28px;
+    height: 200px;
+}
+.pontos .row h3{
+    font-size: 50px;
+    color: rgb(110, 103, 103);
+}
+#pontoX {
+    color: green;
+}
+#pontoO {
+    color: rgb(241, 43, 76);
+}
+.desc {
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 1px solid black;
+    margin-top: 20px;    
+}
+.desc p{
+    margin-top: 20px;
+}
+
+@media (max-width: 375px){
+    #aviso {
+        top: 250px
+    }
 }
