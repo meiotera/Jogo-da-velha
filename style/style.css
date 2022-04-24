@@ -69,4 +69,15 @@
     #aviso {
         top: 250px
     }
+    .desc p{
+        margin-top: 0px;
+    }
+    .desc {
+       
+        margin-top: 0px;    
+    }
+    .titulo{
+        margin: 0;
+    }
+    
 }
